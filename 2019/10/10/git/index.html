@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="z-ww">
 <meta property="og:description" content="在当前目录新建一个Git代码库$ git init 新建一个目录，将其初始化为Git代码库$ git init [project-name]  克隆一个项目和它的整个代码历史(版本信息)$ git clone [url] 文件的4中状态:    Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.       U">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-10T13:02:13.566Z">
+<meta property="og:updated_time" content="2019-10-10T13:04:31.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git">
 <meta name="twitter:description" content="在当前目录新建一个Git代码库$ git init 新建一个目录，将其初始化为Git代码库$ git init [project-name]  克隆一个项目和它的整个代码历史(版本信息)$ git clone [url] 文件的4中状态:    Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.       U">
@@ -213,21 +213,20 @@
 <p>$git log –graph命令可以看到分支合并图</p>
 <p>$git branch -d [branch-name]</p>
 <p>删除远程分支<br>    $ git push origin –delete [branch-name]</p>
-<pre><code>$ git branch -dr [remote/branch]</code></pre><h1 id="下载远程仓库的所有变动"><a href="#下载远程仓库的所有变动" class="headerlink" title="下载远程仓库的所有变动"></a>下载远程仓库的所有变动</h1><p>$ git fetch [remote]</p>
-<h1 id="显示所有远程仓库"><a href="#显示所有远程仓库" class="headerlink" title="显示所有远程仓库"></a>显示所有远程仓库</h1><p>$ git remote -v</p>
-<h1 id="显示某个远程仓库的信息"><a href="#显示某个远程仓库的信息" class="headerlink" title="显示某个远程仓库的信息"></a>显示某个远程仓库的信息</h1><p>$ git remote show [remote]</p>
-<h1 id="增加一个新的远程仓库，并命名"><a href="#增加一个新的远程仓库，并命名" class="headerlink" title="增加一个新的远程仓库，并命名"></a>增加一个新的远程仓库，并命名</h1><p>$ git remote add [shortname] [url]</p>
-<h1 id="取回远程仓库的变化，并与本地分支合并"><a href="#取回远程仓库的变化，并与本地分支合并" class="headerlink" title="取回远程仓库的变化，并与本地分支合并"></a>取回远程仓库的变化，并与本地分支合并</h1><p>$ git pull [remote] [branch]</p>
-<h1 id="上传本地指定分支到远程仓库"><a href="#上传本地指定分支到远程仓库" class="headerlink" title="上传本地指定分支到远程仓库"></a>上传本地指定分支到远程仓库</h1><p>$ git push [remote] [branch]</p>
-<h1 id="强行推送当前分支到远程仓库，即使有冲突"><a href="#强行推送当前分支到远程仓库，即使有冲突" class="headerlink" title="强行推送当前分支到远程仓库，即使有冲突"></a>强行推送当前分支到远程仓库，即使有冲突</h1><p>$ git push [remote] –force</p>
-<h1 id="推送所有分支到远程仓库"><a href="#推送所有分支到远程仓库" class="headerlink" title="推送所有分支到远程仓库"></a>推送所有分支到远程仓库</h1><p>$ git push [remote] –all</p>
-<p>#简单查看远程—所有仓库<br>git remote  （只能查看远程仓库的名字）</p>
-<p>#查看单个仓库<br>git  remote show [remote-branch-name]</p>
-<p>#新建远程仓库<br>git remote add [branchname]  [url]</p>
-<p>#修改远程仓库<br>git remote rename [oldname] [newname]</p>
-<p>#删除远程仓库<br>git remote rm [remote-name]</p>
-<p>#获取远程仓库数据<br>git fetch [remote-name] (获取仓库所有更新，但不自动合并当前分支)<br>git pull (获取仓库所有更新，并自动合并到当前分支)</p>
-<p>#上传数据，如git push origin master<br>git push [remote-name] [branch]</p>
+<pre><code>$ git branch -dr [remote/branch]</code></pre><p> 下载远程仓库的所有变动<br>$ git fetch [remote]</p>
+<p> 显示所有远程仓库<br>$ git remote -v</p>
+<p> 显示某个远程仓库的信息<br>$ git remote show [remote]</p>
+<p> 增加一个新的远程仓库，并命名<br>$ git remote add [shortname] [url]</p>
+<p> 取回远程仓库的变化，并与本地分支合并<br>$ git pull [remote] [branch]</p>
+<p> 上传本地指定分支到远程仓库<br>$ git push [remote] [branch]</p>
+<p> 强行推送当前分支到远程仓库，即使有冲突<br>$ git push [remote] –force</p>
+<p> 推送所有分支到远程仓库<br>$ git push [remote] –all</p>
+<p>简单查看远程—所有仓库<br>git remote  （只能查看远程仓库的名字）<br>查看单个仓库<br>git  remote show [remote-branch-name]</p>
+<p>新建远程仓库<br>git remote add [branchname]  [url]</p>
+<p>修改远程仓库<br>git remote rename [oldname] [newname]</p>
+<p>删除远程仓库<br>git remote rm [remote-name]</p>
+<p>获取远程仓库数据<br>git fetch [remote-name] (获取仓库所有更新，但不自动合并当前分支)<br>git pull (获取仓库所有更新，并自动合并到当前分支)</p>
+<p>上传数据，如git push origin master<br>git push [remote-name] [branch]</p>
 
       
 
@@ -329,7 +328,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#列出所有本地分支"><span class="toc-number">1.</span> <span class="toc-text">列出所有本地分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#列出所有远程分支"><span class="toc-number">2.</span> <span class="toc-text">列出所有远程分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#列出所有本地分支和远程分支"><span class="toc-number">3.</span> <span class="toc-text">列出所有本地分支和远程分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新建一个分支，但依然停留在当前分支"><span class="toc-number">4.</span> <span class="toc-text">新建一个分支，但依然停留在当前分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新建一个分支，并切换到该分支"><span class="toc-number">5.</span> <span class="toc-text">新建一个分支，并切换到该分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新建一个分支，指向指定commit"><span class="toc-number">6.</span> <span class="toc-text">新建一个分支，指向指定commit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新建一个分支，与指定的远程分支建立追踪关系"><span class="toc-number">7.</span> <span class="toc-text">新建一个分支，与指定的远程分支建立追踪关系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#切换到指定分支，并更新工作区"><span class="toc-number">8.</span> <span class="toc-text">切换到指定分支，并更新工作区</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#切换到上一个分支"><span class="toc-number">9.</span> <span class="toc-text">切换到上一个分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#建立追踪关系，在现有分支与指定的远程分支之间"><span class="toc-number">10.</span> <span class="toc-text">建立追踪关系，在现有分支与指定的远程分支之间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#合并指定分支到当前分支"><span class="toc-number">11.</span> <span class="toc-text">合并指定分支到当前分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#选择一个commit，合并进当前分支"><span class="toc-number">12.</span> <span class="toc-text">选择一个commit，合并进当前分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#删除分支"><span class="toc-number">13.</span> <span class="toc-text">删除分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#删除远程分支"><span class="toc-number">14.</span> <span class="toc-text">删除远程分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载远程仓库的所有变动"><span class="toc-number">15.</span> <span class="toc-text">下载远程仓库的所有变动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#显示所有远程仓库"><span class="toc-number">16.</span> <span class="toc-text">显示所有远程仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#显示某个远程仓库的信息"><span class="toc-number">17.</span> <span class="toc-text">显示某个远程仓库的信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#增加一个新的远程仓库，并命名"><span class="toc-number">18.</span> <span class="toc-text">增加一个新的远程仓库，并命名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#取回远程仓库的变化，并与本地分支合并"><span class="toc-number">19.</span> <span class="toc-text">取回远程仓库的变化，并与本地分支合并</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#上传本地指定分支到远程仓库"><span class="toc-number">20.</span> <span class="toc-text">上传本地指定分支到远程仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#强行推送当前分支到远程仓库，即使有冲突"><span class="toc-number">21.</span> <span class="toc-text">强行推送当前分支到远程仓库，即使有冲突</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#推送所有分支到远程仓库"><span class="toc-number">22.</span> <span class="toc-text">推送所有分支到远程仓库</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#列出所有本地分支"><span class="toc-number">1.</span> <span class="toc-text">列出所有本地分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#列出所有远程分支"><span class="toc-number">2.</span> <span class="toc-text">列出所有远程分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#列出所有本地分支和远程分支"><span class="toc-number">3.</span> <span class="toc-text">列出所有本地分支和远程分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新建一个分支，但依然停留在当前分支"><span class="toc-number">4.</span> <span class="toc-text">新建一个分支，但依然停留在当前分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新建一个分支，并切换到该分支"><span class="toc-number">5.</span> <span class="toc-text">新建一个分支，并切换到该分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新建一个分支，指向指定commit"><span class="toc-number">6.</span> <span class="toc-text">新建一个分支，指向指定commit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新建一个分支，与指定的远程分支建立追踪关系"><span class="toc-number">7.</span> <span class="toc-text">新建一个分支，与指定的远程分支建立追踪关系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#切换到指定分支，并更新工作区"><span class="toc-number">8.</span> <span class="toc-text">切换到指定分支，并更新工作区</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#切换到上一个分支"><span class="toc-number">9.</span> <span class="toc-text">切换到上一个分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#建立追踪关系，在现有分支与指定的远程分支之间"><span class="toc-number">10.</span> <span class="toc-text">建立追踪关系，在现有分支与指定的远程分支之间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#合并指定分支到当前分支"><span class="toc-number">11.</span> <span class="toc-text">合并指定分支到当前分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#选择一个commit，合并进当前分支"><span class="toc-number">12.</span> <span class="toc-text">选择一个commit，合并进当前分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#删除分支"><span class="toc-number">13.</span> <span class="toc-text">删除分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#删除远程分支"><span class="toc-number">14.</span> <span class="toc-text">删除远程分支</span></a></li></ol>
                     </div>
                 </span>
             </div>
