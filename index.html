@@ -192,20 +192,20 @@
 <p>  忽略文件<br>        有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等在主目录下建立”.gitignore”文件，此文件有如下规则：忽略文件中的空行或以井号（#）开始的行将会被忽略。<br>    可以使用Linux通配符。<br>    例如：星号（*）代表任意多个字符，问号（？）代表一个字符，方括号（[abc]）代表可选字符范围，大括号（{string1,string2,…}）代表可选的字符串等。<br>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。<br>如果名称的最前面是一个路径分隔符（/），表示要忽略的文件在此目录下，而子目录中的文件不忽略。<br>如果名称的最后面是一个路径分隔符（/），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</p>
 <p>撤销上一次的提交<br>git reset –hard HEAD~1</p>
 <p>git revert <commit-id></commit-id></p>
-<h1 id="列出所有本地分支"><a href="#列出所有本地分支" class="headerlink" title="列出所有本地分支"></a>列出所有本地分支</h1><p>$ git branch</p>
-<h1 id="列出所有远程分支"><a href="#列出所有远程分支" class="headerlink" title="列出所有远程分支"></a>列出所有远程分支</h1><p>$ git branch -r</p>
-<h1 id="列出所有本地分支和远程分支"><a href="#列出所有本地分支和远程分支" class="headerlink" title="列出所有本地分支和远程分支"></a>列出所有本地分支和远程分支</h1><p>$ git branch -a</p>
-<h1 id="新建一个分支，但依然停留在当前分支"><a href="#新建一个分支，但依然停留在当前分支" class="headerlink" title="新建一个分支，但依然停留在当前分支"></a>新建一个分支，但依然停留在当前分支</h1><p>$ git branch [branch-name]</p>
-<h1 id="新建一个分支，并切换到该分支"><a href="#新建一个分支，并切换到该分支" class="headerlink" title="新建一个分支，并切换到该分支"></a>新建一个分支，并切换到该分支</h1><p>$ git checkout -b [branch]</p>
-<h1 id="新建一个分支，指向指定commit"><a href="#新建一个分支，指向指定commit" class="headerlink" title="新建一个分支，指向指定commit"></a>新建一个分支，指向指定commit</h1><p>$ git branch [branch] [commit]</p>
-<h1 id="新建一个分支，与指定的远程分支建立追踪关系"><a href="#新建一个分支，与指定的远程分支建立追踪关系" class="headerlink" title="新建一个分支，与指定的远程分支建立追踪关系"></a>新建一个分支，与指定的远程分支建立追踪关系</h1><p>$ git branch –track [branch] [remote-branch]</p>
-<h1 id="切换到指定分支，并更新工作区"><a href="#切换到指定分支，并更新工作区" class="headerlink" title="切换到指定分支，并更新工作区"></a>切换到指定分支，并更新工作区</h1><p>$ git checkout [branch-name]</p>
-<h1 id="切换到上一个分支"><a href="#切换到上一个分支" class="headerlink" title="切换到上一个分支"></a>切换到上一个分支</h1><p>$ git checkout -</p>
-<h1 id="建立追踪关系，在现有分支与指定的远程分支之间"><a href="#建立追踪关系，在现有分支与指定的远程分支之间" class="headerlink" title="建立追踪关系，在现有分支与指定的远程分支之间"></a>建立追踪关系，在现有分支与指定的远程分支之间</h1><p>$ git branch –set-upstream [branch] [remote-branch]</p>
-<h1 id="合并指定分支到当前分支"><a href="#合并指定分支到当前分支" class="headerlink" title="合并指定分支到当前分支"></a>合并指定分支到当前分支</h1><p>$ git merge [branch]</p>
-<h1 id="选择一个commit，合并进当前分支"><a href="#选择一个commit，合并进当前分支" class="headerlink" title="选择一个commit，合并进当前分支"></a>选择一个commit，合并进当前分支</h1><p>$ git cherry-pick [commit]</p>
-<h1 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h1><p>$ git branch -d [branch-name]</p>
-<h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><p>$ git push origin –delete [branch-name]<br>$ git branch -dr [remote/branch]</p>
+<p> 列出所有本地分支<br>$ git branch</p>
+<p> 列出所有远程分支<br>$ git branch -r</p>
+<p> 列出所有本地分支和远程分支<br>$ git branch -a</p>
+<p> 新建一个分支，但依然停留在当前分支<br>$ git branch [branch-name]</p>
+<p> 新建一个分支，并切换到该分支<br>$ git checkout -b [branch]</p>
+<p> 新建一个分支，指向指定commit<br>$ git branch [branch] [commit]</p>
+<p> 新建一个分支，与指定的远程分支建立追踪关系<br>$ git branch –track [branch] [remote-branch]</p>
+<p> 切换到指定分支，并更新工作区<br>$ git checkout [branch-name]</p>
+<p> 切换到上一个分支<br>$ git checkout -</p>
+<p> 建立追踪关系，在现有分支与指定的远程分支之间<br>$ git branch –set-upstream [branch] [remote-branch]</p>
+<p> 合并指定分支到当前分支<br>$ git merge [branch]</p>
+<p> 选择一个commit，合并进当前分支<br>$ git cherry-pick [commit]</p>
+<p> 删除分支<br>$ git branch -d [branch-name]</p>
+<p> 删除远程分支<br>$ git push origin –delete [branch-name]<br>$ git branch -dr [remote/branch]</p>
 <p>新建分支<br>新建一个分支，但依然停留在当前分支 $ git branch [branch-name]<br>$git checkout -b [branch]</p>
 <p>分支合并<br>    $ git merge [branch]</p>
 <p>$git log –graph命令可以看到分支合并图</p>
