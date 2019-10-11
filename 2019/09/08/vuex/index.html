@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>vuex | z-ww</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vuex用来管理全局状态 State 仓库中的数据 Getter ：类似于Vue实例中的计算属性,Getter就是普通的获取state包装的函数 Mutations: Vuex中改变store中状态的唯一方法就是提交Mutations,Mutation非常类似于事件    修改state状态的方法中有两个形参(state,payload)  ps:payload  触发方法时传过来的值    页面">
+  <meta name="description" content="vuex的用法: 安装:    npm install –save vuex    在main.js中,通过Vue.use()使用Vuex    import Vue from ‘vue’;    import Vuex from ‘Vuex’    import VueRouter from ‘vue-router’    import App from ‘./app.vue’ Vue.use(">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vuex">
 <meta property="og:url" content="http://yoursite.com/2019/09/08/vuex/index.html">
 <meta property="og:site_name" content="z-ww">
-<meta property="og:description" content="vuex用来管理全局状态 State 仓库中的数据 Getter ：类似于Vue实例中的计算属性,Getter就是普通的获取state包装的函数 Mutations: Vuex中改变store中状态的唯一方法就是提交Mutations,Mutation非常类似于事件    修改state状态的方法中有两个形参(state,payload)  ps:payload  触发方法时传过来的值    页面">
+<meta property="og:description" content="vuex的用法: 安装:    npm install –save vuex    在main.js中,通过Vue.use()使用Vuex    import Vue from ‘vue’;    import Vuex from ‘Vuex’    import VueRouter from ‘vue-router’    import App from ‘./app.vue’ Vue.use(">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-08T15:00:49.496Z">
+<meta property="og:updated_time" content="2019-10-11T10:33:51.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vuex">
-<meta name="twitter:description" content="vuex用来管理全局状态 State 仓库中的数据 Getter ：类似于Vue实例中的计算属性,Getter就是普通的获取state包装的函数 Mutations: Vuex中改变store中状态的唯一方法就是提交Mutations,Mutation非常类似于事件    修改state状态的方法中有两个形参(state,payload)  ps:payload  触发方法时传过来的值    页面">
+<meta name="twitter:description" content="vuex的用法: 安装:    npm install –save vuex    在main.js中,通过Vue.use()使用Vuex    import Vue from ‘vue’;    import Vuex from ‘Vuex’    import VueRouter from ‘vue-router’    import App from ‘./app.vue’ Vue.use(">
   
     <link rel="alternative" href="/atom.xml" title="z-ww" type="application/atom+xml">
   
@@ -171,7 +171,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>vuex用来管理全局状态</p>
+        <p>vuex的用法:</p>
+<p>安装:<br>    npm install –save vuex<br>    在main.js中,通过Vue.use()使用Vuex<br>    import Vue from ‘vue’;<br>    import Vuex from ‘Vuex’<br>    import VueRouter from ‘vue-router’<br>    import App from ‘./app.vue’</p>
+<pre><code>Vue.use(vueRouter)
+Vue.use(Vuex);
+const store = new Vuex.Store({
+
+})</code></pre><p>vuex用来管理全局状态</p>
 <p>State 仓库中的数据</p>
 <p>Getter ：类似于Vue实例中的计算属性,Getter就是普通的获取state包装的函数</p>
 <p>Mutations: Vuex中改变store中状态的唯一方法就是提交Mutations,Mutation非常类似于事件<br>    修改state状态的方法中有两个形参(state,payload)  ps:payload  触发方法时传过来的值<br>    页面或者组件 $store.commit(‘方法名’,payload)  触发Mutation中的方法<br>action: action可以触发Mutation,不能直接改变state<br>    在store上注册action,出路函数总是接收context作为第一个参数,payload作为第二个参数<br>    context {<br>        state<br>        rootState,<br>        commit,<br>        dispatch, //分发action<br>        getters,<br>        rootGetters<br>    }</p>
@@ -414,15 +420,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大半夜睡不着,拿起电脑谁便学点东西</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vue组件化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大半夜睡不着,拿起电脑谁便学点东西</a>
               </li>
             
             <div class="clearfix"></div>
