@@ -148,6 +148,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue项目实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/14/vue项目实践/">git</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/14/vue项目实践/" class="archive-article-date">
+  	<time datetime="2019-10-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vue-cli3.0项目配置<br>webpack相关配置,在根目录创建vue.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module.export = &#123;</span><br><span class="line">    publicPath:&apos;&apos;,</span><br><span class="line">    devServer:&#123; //服务端口</span><br><span class="line">        port    </span><br><span class="line">    &#125;,</span><br><span class="line">    configureWebpack:&#123;</span><br><span class="line">        name:&apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>vue inspect  –rules   //检查webpack配置</li>
+<li>vue ui  vue可视化工具</li>
+</ul>
+<blockquote>
+<p>字体图标</p>
+<ul>
+<li>svg-sprite-loader(安装svg-sprite-loader)</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack(config)&#123;</span><br><span class="line">    //配置svg规则,排除icons目录</span><br><span class="line">    config.module.rule(&apos;svg&apos;).exclude.add(resolve(&apos;path&apos;)).end();</span><br><span class="line">    //新增icons规则</span><br><span class="line">    config.module</span><br><span class="line">        .rule(&apos;icons&apos;).test(/\.svg$/)</span><br><span class="line">        include.add(resolve(&apos;path&apos;)).end()</span><br><span class="line">        .use(&apos;svg-sprite-loader&apos;)</span><br><span class="line">        .loader(&apos;svg-sprite-loader&apos;)</span><br><span class="line">        .options(&#123;symbolId:&apos;icon-[name]&apos;&#125;)</span><br><span class="line">        .end()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/14/vue项目实践/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue全家桶&amp;&amp;原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -406,83 +483,6 @@ vue-router中默认使用的是hash模式,url中带有#
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/10/git/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue项目实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/10/vue项目实践/">git</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/10/vue项目实践/" class="archive-article-date">
-  	<time datetime="2019-10-10T12:20:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>vue-cli3.0项目配置<br>webpack相关配置,在根目录创建vue.config.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module.export = &#123;</span><br><span class="line">    publicPath:&apos;&apos;,</span><br><span class="line">    devServer:&#123; //服务端口</span><br><span class="line">        port    </span><br><span class="line">    &#125;,</span><br><span class="line">    configureWebpack:&#123;</span><br><span class="line">        name:&apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>vue inspect  –rules   //检查webpack配置</li>
-<li>vue ui  vue可视化工具</li>
-</ul>
-<blockquote>
-<p>字体图标</p>
-<ul>
-<li>svg-sprite-loader(安装svg-sprite-loader)</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack(config)&#123;</span><br><span class="line">    //配置svg规则,排除icons目录</span><br><span class="line">    config.module.rule(&apos;svg&apos;).exclude.add(resolve(&apos;path&apos;)).end();</span><br><span class="line">    //新增icons规则</span><br><span class="line">    config.module</span><br><span class="line">        .rule(&apos;icons&apos;).test(/\.svg$/)</span><br><span class="line">        include.add(resolve(&apos;path&apos;)).end()</span><br><span class="line">        .use(&apos;svg-sprite-loader&apos;)</span><br><span class="line">        .loader(&apos;svg-sprite-loader&apos;)</span><br><span class="line">        .options(&#123;symbolId:&apos;icon-[name]&apos;&#125;)</span><br><span class="line">        .end()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/10/vue项目实践/">展开全文 >></a>
         </p>
       
 
