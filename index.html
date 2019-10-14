@@ -171,24 +171,7 @@
         <p>#vue-router</p>
 <p>安装<br>    vue add router<br>配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Router from &apos;vue-router&apos;</span><br><span class="line">import Home from &apos;./views/Home.vue&apos;</span><br><span class="line"></span><br><span class="line">Vue.use(Router)  //引入router插件</span><br><span class="line"></span><br><span class="line">export default new Router(&#123;</span><br><span class="line">  mode: &apos;history&apos;, //模式   hash | history | abstract  </span><br><span class="line">  base: process.env.BASE_URL, //webpack配置</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/&apos;,</span><br><span class="line">      name: &apos;home&apos;,</span><br><span class="line">      component: Home</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/about&apos;,</span><br><span class="line">      name: &apos;about&apos;,</span><br><span class="line">      // route level code-splitting</span><br><span class="line">      // this generates a separate chunk (about.[hash].js) for this route</span><br><span class="line">      // which is lazy-loaded when the route is visited.</span><br><span class="line">      component: () =&gt; import(/* webpackChunkName: &quot;about&quot; */ &apos;./views/About.vue&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>指定路由器:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//main.js</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  router,  //挂载router </span><br><span class="line">  store,</span><br><span class="line">  render: h =&gt; h(App)</span><br><span class="line">&#125;).$mount(&apos;#app&apos;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>路由视图:<br><router-view></router-view><br>导航链接<br><router-link to></router-link></p>
-<p>路由嵌套:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  path: &apos;/&apos;,</span><br><span class="line">  name: &apos;home&apos;,</span><br><span class="line">  component: Home,</span><br><span class="line">  children:[</span><br><span class="line">    &#123;path:&apos;/list&apos;,name:&apos;list&apos;,component:List&#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>动态路由:<br>    匹配某种模式所有的路由<br>    {path:’/Detail/:id’,component:Detail,props:true}<br>    获取参数: $route.params.id<br>    设置props:true时,组件内可以通过<br>    props:{<br>        id:{<br>            type:Number,<br>            default:’’<br>        }</p>
-<pre><code>}  来获取</code></pre><p>路由配置<br>    设置meta:{auth:true}  //需要认证<br>    在路由守卫中添加判断    to.meta.auth</p>
-<p>路由独享守卫</p>
-<p>利用$router.addRoutes()可以实现动态路由添加,常用于权限控制</p>
-<p>面包屑组件(利用$route.matched可得到路由匹配数组,按顺序解析得到路由层次关系)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">watch:&#123;</span><br><span class="line">    $route()&#123;</span><br><span class="line">        console.log(this.$route.matched);</span><br><span class="line">        this.crumbData = this.$route.matched.map(m=&gt;m.name)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
-
-<p>vue-router源码实现:<br>    1.插件<br>    2.url变化监听<br>    3.路由配置解析{‘/‘,’home’}<br>    4.全局组件router-link  router-view</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">//代码简单实现部分</span><br><span class="line">import Home from &apos;./views/Home.vue&apos;</span><br><span class="line">import About from &apos;./views/About.vue&apos;</span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line"></span><br><span class="line">class VueRouter&#123;</span><br><span class="line">	constructor(options)&#123;</span><br><span class="line">		 this.$options = options;</span><br><span class="line">		 this.routeMap = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">		 //路由响应式</span><br><span class="line">		 this.app = new Vue(&#123;</span><br><span class="line">		 	data:&#123;</span><br><span class="line">		 		current:&apos;/&apos;</span><br><span class="line">		 	&#125;</span><br><span class="line">		 &#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	init()&#123;</span><br><span class="line">		this.bindEvents();//监听url变化</span><br><span class="line">		this.createRouteMap();//解析路由配置</span><br><span class="line">		this.initComponent();//实现两个组件</span><br><span class="line">	&#125;</span><br><span class="line">	bindEvents()&#123;</span><br><span class="line">		window.addEventListener(&apos;load&apos;,this.onhashchange.bind(this))</span><br><span class="line">		window.addEventListener(&apos;hashchange&apos;,this.onHashChange.bind(this))</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	onHashChange()&#123;</span><br><span class="line">		this.app.current = window.location.hash.slice(1) || &apos;/&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	createRouteMap(options)&#123;</span><br><span class="line">		options.route.forEach(item =&gt; &#123;</span><br><span class="line">			this.routeMap[item.path] = item.component;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	initComponent()&#123;</span><br><span class="line">		//router-link  router-view</span><br><span class="line">		vue.component(&apos;router-link&apos;,&#123;</span><br><span class="line">			props:&#123;to:String&#125;,</span><br><span class="line">			render(h)&#123;</span><br><span class="line">				//h(tag,data,children)</span><br><span class="line">				return h(&apos;a&apos;,&#123;attrs:&#123;href:&apos;#&apos;+this.to&#125;&#125;,[this.$slots.default]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">		vue.component(&apos;router-view&apos;,&#123;</span><br><span class="line">			render:(h)=&gt;&#123;</span><br><span class="line">				const comp = this.routeMap[this.app.current].component</span><br><span class="line">				//h(tag,data,children)</span><br><span class="line">				return h(comp);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">VueRouter.install = function(Vue)&#123;</span><br><span class="line"></span><br><span class="line">	Vue.mixin(&#123;</span><br><span class="line">		beforeCreate()&#123;</span><br><span class="line">			if(this.$options.router)&#123;</span><br><span class="line">				Vue.prototype.$router = this.$options.router;</span><br><span class="line">				this.$options.router.init();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default new Vue(&#123;</span><br><span class="line">	routes:[</span><br><span class="line">		&#123;path:&apos;/&apos;,name:Home&#125;,</span><br><span class="line">		&#123;path:&apos;/about&apos;,name:About&#125;</span><br><span class="line"></span><br><span class="line">	]</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+        
       
 
       
@@ -423,6 +406,83 @@ vue-router中默认使用的是hash模式,url中带有#
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/10/git/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue项目实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/10/vue项目实践/">git</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/10/vue项目实践/" class="archive-article-date">
+  	<time datetime="2019-10-10T12:20:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vue-cli3.0项目配置<br>webpack相关配置,在根目录创建vue.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module.export = &#123;</span><br><span class="line">    publicPath:&apos;&apos;,</span><br><span class="line">    devServer:&#123; //服务端口</span><br><span class="line">        port    </span><br><span class="line">    &#125;,</span><br><span class="line">    configureWebpack:&#123;</span><br><span class="line">        name:&apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>vue inspect  –rules   //检查webpack配置</li>
+<li>vue ui  vue可视化工具</li>
+</ul>
+<blockquote>
+<p>字体图标</p>
+<ul>
+<li>svg-sprite-loader(安装svg-sprite-loader)</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack(config)&#123;</span><br><span class="line">    //配置svg规则,排除icons目录</span><br><span class="line">    config.module.rule(&apos;svg&apos;).exclude.add(resolve(&apos;path&apos;)).end();</span><br><span class="line">    //新增icons规则</span><br><span class="line">    config.module</span><br><span class="line">        .rule(&apos;icons&apos;).test(/\.svg$/)</span><br><span class="line">        include.add(resolve(&apos;path&apos;)).end()</span><br><span class="line">        .use(&apos;svg-sprite-loader&apos;)</span><br><span class="line">        .loader(&apos;svg-sprite-loader&apos;)</span><br><span class="line">        .options(&#123;symbolId:&apos;icon-[name]&apos;&#125;)</span><br><span class="line">        .end()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/10/vue项目实践/">展开全文 >></a>
         </p>
       
 
